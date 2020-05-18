@@ -18,7 +18,7 @@ const useSearch = () => {
 
       try {
         const { data } = await axios.get(
-          `https://api.github.com/search/repositories?q=${query}in:name&sort=stars&order=asc&page=${page}&per_page=100`
+          `https://api.github.com/search/repositories?q=${query}in:name&sort=stars&order=desc&page=${page}&per_page=100`
         );
         setRepos(data);
       } catch (error) {

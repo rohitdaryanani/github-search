@@ -29,6 +29,14 @@ const CardItem = styled.li`
   font-weight: ${({ strong }) => (strong ? '500' : '300')};
 `;
 
+const EyeIcon = styled(Eye)`
+  margin-right: 5px;
+`;
+
+const StarIcon = styled(Star)`
+  margin-right: 5px;
+`;
+
 const card = ({ repo }) => {
   const { id = '', name = '', watchers_count = 0, stargazers_count = 0 } = repo;
   return (
@@ -36,11 +44,11 @@ const card = ({ repo }) => {
       <CardItem>{`ID: ${id}`}</CardItem>
       <CardItem strong>{name}</CardItem>
       <CardItem>
-        <Eye />
+        <EyeIcon />
         {watchers_count}
       </CardItem>
       <CardItem>
-        <Star />
+        <StarIcon />
         {stargazers_count}
       </CardItem>
     </Card>

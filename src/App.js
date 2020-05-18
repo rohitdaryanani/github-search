@@ -26,7 +26,7 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { target } = e;
-    const value = target?.search?.value.trim();
+    const value = target.search.value.trim();
     search({ query: value });
   };
 
