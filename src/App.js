@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Search from './components/search';
 
-function App() {
+const App = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { target } = e;
+    const value = target?.search?.value.trim();
+    // search({ query: value });
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <Search
+          placeholder="Search Github Repos..."
+          type="text"
+          name="search"
+        />
+      </form>
     </div>
   );
-}
+};
 
 export default App;
