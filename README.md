@@ -1,68 +1,76 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Github repo serch
 
-## Available Scripts
+check the live version [here](http://rohit-github-search.surge.sh/)
 
-In the project directory, you can run:
+### Setup and Run
 
-### `yarn start`
+- `$ git clone https://github.com/rohitdaryanani/github-search.git && cd github-search` will download the app and cd to the folder once done.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- `yarn` - to install dependencies.
+- `yarn start` - Runs the app in development mode.
+- `yarn build` - Builds the app for production to the build folder.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Tech stack and libraries
 
-### `yarn test`
+- **React** - frontend/view library
+- **Create React App** - react project generator facebook
+- **Styled components** - for css in js
+- **Axios** - HTTP client
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### file structure
 
-### `yarn build`
+- Top Level
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+├── README.md
+├── build
+├── node_modules
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+└── src
+    ├── App.js
+    ├── App.test.js
+    ├── assets
+    │   ├── eye.svg
+    │   └── star.svg
+    ├── components
+    │   ├── Card.js
+    │   ├── Layout.js
+    │   ├── Pages.js
+    │   ├── Search.js
+    │   └── Spinner.js
+    ├── hooks
+    │   └── use-search.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    └── serviceWorker.js
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Problem
 
-### `yarn eject`
+- React application to view a list of GitHub repositories with search functionality
+  - Display repository’s Id, name, watchers_count
+  - Sort the results by the number of stars
+  - Have a search input that will show results (from all possible repositories) to those that have its name matches the search field.
+- Add on
+  - Pagination
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Solution
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Components - All the components are designed with the thought of being reusable and state independent.
+  - Card - Displaying data info
+  - Layout - Managing the content structure
+  - Pages - Manage pagination
+  - Search - Search input bat
+  - Spinner - Pre loader for async actions
+- Hooks
+  - use-search - manage the data fetching and state for the App
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Issues
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Githubs search API limits to the first 1000 search results available,
