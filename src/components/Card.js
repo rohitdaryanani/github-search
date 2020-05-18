@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ReactComponent as Star } from '../assets/star.svg';
+import { ReactComponent as Eye } from '../assets/eye.svg';
 
 const Card = styled.ul`
   list-style: none;
@@ -33,8 +35,14 @@ const card = ({ repo }) => {
     <Card key={id}>
       <CardItem>{`ID: ${id}`}</CardItem>
       <CardItem strong>{name}</CardItem>
-      <CardItem>{watchers_count}</CardItem>
-      <CardItem>{stargazers_count}</CardItem>
+      <CardItem>
+        <Eye />
+        {watchers_count}
+      </CardItem>
+      <CardItem>
+        <Star />
+        {stargazers_count}
+      </CardItem>
     </Card>
   );
 };
