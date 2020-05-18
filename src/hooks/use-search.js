@@ -32,12 +32,13 @@ const useSearch = () => {
   }, [query, page]);
 
   // aliasing to avoid shadow scope
-  const search = ({ query: q }) => {
+  const search = ({ query: q, page: p }) => {
     if (q) {
       setQuery(q);
+      setPage(1);
     }
+    if (p) setPage(p);
   };
-
   return {
     loading,
     error,
