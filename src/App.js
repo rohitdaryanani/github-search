@@ -1,10 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import Search from './components/Search';
 import Card from './components/Card';
 import Layout from './components/Layout';
 import Pages from './components/Pages';
+import Spinner from './components/Spinner';
 
 import useSearch from './hooks/use-search';
+
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 70px;
+`;
 
 const App = () => {
   const { loading, error, repos, search, page } = useSearch();
@@ -18,7 +31,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <Container>
       <form onSubmit={handleSubmit}>
         <Search
           placeholder="Search Github Repos..."
@@ -27,8 +40,9 @@ const App = () => {
         />
       </form>
       {error && <div>Something went wrong ...</div>}
+      {total_count > 0 && <p>Found {total_count.toLocaleString()} Items</p>}
       {loading ? (
-        <p>Loading...</p>
+        <Spinner />
       ) : (
         <>
           <Layout>
@@ -43,7 +57,7 @@ const App = () => {
           )}
         </>
       )}
-    </div>
+    </Container>
   );
 };
 
